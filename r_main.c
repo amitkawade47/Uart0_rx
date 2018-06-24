@@ -75,6 +75,7 @@ void main(void)
     while (1U)
     {
 	    EspCommandPoll();
+	    SendFbPoll();
       /* if(Uart.NoOfBytesReceived_u8 >= 5)
        {
 	  InitiateUartTransmit((unsigned char *)"RECEIVED",8);

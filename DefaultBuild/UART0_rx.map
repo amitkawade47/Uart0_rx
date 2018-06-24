@@ -1,7 +1,7 @@
 
 
 
-78K0R Linker W1.80                            Date:23 Jun 2018 Page:   1
+78K0R Linker W1.80                            Date:24 Jun 2018 Page:   1
 
 Command:   -yC:\Program Files (x86)\Renesas Electronics\CS+\CACX\Device\
            RL78\Devicefile -_msgoff -oDefaultBuild\UART0_rx.lmf -gi00000
@@ -24,8 +24,8 @@ Directive:
 *** Link information ***
 
     36 output segment(s)
-  959H byte(s) real data
-   642 symbol(s) defined
+  9E2H byte(s) real data
+   699 symbol(s) defined
 
 
 *** Memory map ***
@@ -117,7 +117,7 @@ Directive:
 * gap *                               00022H    0000AH
          @@VECT2C                     0002CH    00002H  CSEG AT
                   @@VECT2C Timer      0002CH    00002H
-         @@R_INIT                     0002EH    0007CH  CSEG UNIT64KP
+         @@R_INIT                     0002EH    00088H  CSEG UNIT64KP
                   @@R_INIT @cstart    0002EH    00000H
                   @@R_INIT r_main     0002EH    00000H
                   @@R_INIT r_systeminit
@@ -131,9 +131,9 @@ Directive:
                                       0003EH    00002H
                   @@R_INIT Timer      00040H    00004H
                   @@R_INIT EspCommand
-                                      00044H    00066H
-                  @@R_INIT @rom       000AAH    00000H
-* gap *                               000AAH    00016H
+                                      00044H    00072H
+                  @@R_INIT @rom       000B6H    00000H
+* gap *                               000B6H    0000AH
          ?CSEGOB0                     000C0H    00004H  CSEG OPT_BYTE
          @@CODEL                      000C4H    00000H  CSEG
                   @@CODEL  r_main     000C4H    00000H
@@ -158,41 +158,40 @@ Directive:
                   @@LCODE  m_fcom6    00222H    0001FH
                   @@LCODE  m_lstof    00241H    00016H
                   @@LCODE  m_lutof    00257H    0004DH
-         @@CODE                       002A4H    00535H  CSEG BASE
-                  @@CODE   r_main     002A4H    0002AH
+         @@CODE                       002A4H    005B2H  CSEG BASE
+                  @@CODE   r_main     002A4H    0002DH
                   @@CODE   r_systeminit
-                                      002CEH    00017H
-                  @@CODE   r_cg_cgc   002E5H    00010H
+                                      002D1H    00017H
+                  @@CODE   r_cg_cgc   002E8H    00010H
                   @@CODE   r_cg_cgc_user
-                                      002F5H    00005H
+                                      002F8H    00005H
                   @@CODE   r_cg_serial
-                                      002FAH    00137H
+                                      002FDH    00137H
                   @@CODE   r_cg_serial_user
-                                      00431H    00029H
-                  @@CODE   Timer      0045AH    0008FH
+                                      00434H    00029H
+                  @@CODE   Timer      0045DH    0008FH
                   @@CODE   EspCommand
-                                      004E9H    002F0H
-         @@BASE                       007D9H    0007CH  CSEG BASE
-                  @@BASE   r_main     007D9H    00000H
+                                      004ECH    0036AH
+         @@BASE                       00856H    0007CH  CSEG BASE
+                  @@BASE   r_main     00856H    00000H
                   @@BASE   r_systeminit
-                                      007D9H    00000H
-                  @@BASE   r_cg_cgc   007D9H    00000H
+                                      00856H    00000H
+                  @@BASE   r_cg_cgc   00856H    00000H
                   @@BASE   r_cg_cgc_user
-                                      007D9H    00000H
+                                      00856H    00000H
                   @@BASE   r_cg_serial
-                                      007D9H    00000H
+                                      00856H    00000H
                   @@BASE   r_cg_serial_user
-                                      007D9H    0003DH
-                  @@BASE   Timer      00816H    0003FH
+                                      00856H    0003DH
+                  @@BASE   Timer      00893H    0003FH
                   @@BASE   EspCommand
-                                      00855H    00000H
-* gap *                               00855H    00001H
-         @@CNSTL                      00856H    000CEH  CSEG PAGE64KP
-                  @@CNSTL  m_fcom5    00856H    000CEH
-         @@LCODEL                     00924H    00060H  CSEG
-                  @@LCODEL @stkinit   00924H    00044H
-                  @@LCODEL exit       00968H    0001CH
-* gap *                               00984H    0167CH
+                                      008D2H    00000H
+         @@CNSTL                      008D2H    000CEH  CSEG PAGE64KP
+                  @@CNSTL  m_fcom5    008D2H    000CEH
+         @@LCODEL                     009A0H    00060H  CSEG
+                  @@LCODEL @stkinit   009A0H    00044H
+                  @@LCODEL exit       009E4H    0001CH
+* gap *                               00A00H    01600H
          @@CNST                       02000H    00010H  CSEG MIRRORP
                   @@CNST   @cstart    02000H    00000H
                   @@CNST   r_main     02000H    00008H
@@ -230,7 +229,7 @@ Directive:
                   @@DATA   EspCommand
                                       FF7DCH    00020H
                   @@DATA   @rom       FF7FCH    00000H
-         @@INIT                       FF7FCH    0007CH  DSEG BASEP
+         @@INIT                       FF7FCH    00088H  DSEG BASEP
                   @@INIT   @cstart    FF7FCH    00000H
                   @@INIT   r_main     FF7FCH    00000H
                   @@INIT   r_systeminit
@@ -244,88 +243,88 @@ Directive:
                                       FF80CH    00002H
                   @@INIT   Timer      FF80EH    00004H
                   @@INIT   EspCommand
-                                      FF812H    00066H
-                  @@INIT   @rom       FF878H    00000H
-         @@INIS                       FF878H    00000H  DSEG UNITP
-                  @@INIS   @cstart    FF878H    00000H
-                  @@INIS   r_main     FF878H    00000H
+                                      FF812H    00072H
+                  @@INIT   @rom       FF884H    00000H
+         @@INIS                       FF884H    00000H  DSEG UNITP
+                  @@INIS   @cstart    FF884H    00000H
+                  @@INIS   r_main     FF884H    00000H
                   @@INIS   r_systeminit
-                                      FF878H    00000H
-                  @@INIS   r_cg_cgc   FF878H    00000H
+                                      FF884H    00000H
+                  @@INIS   r_cg_cgc   FF884H    00000H
                   @@INIS   r_cg_cgc_user
-                                      FF878H    00000H
+                                      FF884H    00000H
                   @@INIS   r_cg_serial
-                                      FF878H    00000H
+                                      FF884H    00000H
                   @@INIS   r_cg_serial_user
-                                      FF878H    00000H
-                  @@INIS   Timer      FF878H    00000H
+                                      FF884H    00000H
+                  @@INIS   Timer      FF884H    00000H
                   @@INIS   EspCommand
-                                      FF878H    00000H
-                  @@INIS   @rom       FF878H    00000H
-         @@DATS                       FF878H    00000H  DSEG UNITP
-                  @@DATS   @cstart    FF878H    00000H
-                  @@DATS   r_main     FF878H    00000H
+                                      FF884H    00000H
+                  @@INIS   @rom       FF884H    00000H
+         @@DATS                       FF884H    00000H  DSEG UNITP
+                  @@DATS   @cstart    FF884H    00000H
+                  @@DATS   r_main     FF884H    00000H
                   @@DATS   r_systeminit
-                                      FF878H    00000H
-                  @@DATS   r_cg_cgc   FF878H    00000H
+                                      FF884H    00000H
+                  @@DATS   r_cg_cgc   FF884H    00000H
                   @@DATS   r_cg_cgc_user
-                                      FF878H    00000H
+                                      FF884H    00000H
                   @@DATS   r_cg_serial
-                                      FF878H    00000H
+                                      FF884H    00000H
                   @@DATS   r_cg_serial_user
-                                      FF878H    00000H
-                  @@DATS   Timer      FF878H    00000H
+                                      FF884H    00000H
+                  @@DATS   Timer      FF884H    00000H
                   @@DATS   EspCommand
-                                      FF878H    00000H
-                  @@DATS   @rom       FF878H    00000H
-         @@INITL                      FF878H    00000H  DSEG UNIT64KP
-                  @@INITL  @cstart    FF878H    00000H
-                  @@INITL  r_main     FF878H    00000H
+                                      FF884H    00000H
+                  @@DATS   @rom       FF884H    00000H
+         @@INITL                      FF884H    00000H  DSEG UNIT64KP
+                  @@INITL  @cstart    FF884H    00000H
+                  @@INITL  r_main     FF884H    00000H
                   @@INITL  r_systeminit
-                                      FF878H    00000H
-                  @@INITL  r_cg_cgc   FF878H    00000H
+                                      FF884H    00000H
+                  @@INITL  r_cg_cgc   FF884H    00000H
                   @@INITL  r_cg_cgc_user
-                                      FF878H    00000H
+                                      FF884H    00000H
                   @@INITL  r_cg_serial
-                                      FF878H    00000H
+                                      FF884H    00000H
                   @@INITL  r_cg_serial_user
-                                      FF878H    00000H
-                  @@INITL  Timer      FF878H    00000H
+                                      FF884H    00000H
+                  @@INITL  Timer      FF884H    00000H
                   @@INITL  EspCommand
-                                      FF878H    00000H
-                  @@INITL  @rom       FF878H    00000H
-         @@DATAL                      FF878H    00000H  DSEG UNIT64KP
-                  @@DATAL  @cstart    FF878H    00000H
-                  @@DATAL  r_main     FF878H    00000H
+                                      FF884H    00000H
+                  @@INITL  @rom       FF884H    00000H
+         @@DATAL                      FF884H    00000H  DSEG UNIT64KP
+                  @@DATAL  @cstart    FF884H    00000H
+                  @@DATAL  r_main     FF884H    00000H
                   @@DATAL  r_systeminit
-                                      FF878H    00000H
-                  @@DATAL  r_cg_cgc   FF878H    00000H
+                                      FF884H    00000H
+                  @@DATAL  r_cg_cgc   FF884H    00000H
                   @@DATAL  r_cg_cgc_user
-                                      FF878H    00000H
+                                      FF884H    00000H
                   @@DATAL  r_cg_serial
-                                      FF878H    00000H
+                                      FF884H    00000H
                   @@DATAL  r_cg_serial_user
-                                      FF878H    00000H
-                  @@DATAL  Timer      FF878H    00000H
+                                      FF884H    00000H
+                  @@DATAL  Timer      FF884H    00000H
                   @@DATAL  EspCommand
-                                      FF878H    00000H
-                  @@DATAL  @rom       FF878H    00000H
-         @@BITS                       FF878H    00000H  BSEG
-                  @@BITS   @cstart    FF878H.0  00000H.0
-                  @@BITS   r_main     FF878H.0  00000H.0
+                                      FF884H    00000H
+                  @@DATAL  @rom       FF884H    00000H
+         @@BITS                       FF884H    00000H  BSEG
+                  @@BITS   @cstart    FF884H.0  00000H.0
+                  @@BITS   r_main     FF884H.0  00000H.0
                   @@BITS   r_systeminit
-                                      FF878H.0  00000H.0
-                  @@BITS   r_cg_cgc   FF878H.0  00000H.0
+                                      FF884H.0  00000H.0
+                  @@BITS   r_cg_cgc   FF884H.0  00000H.0
                   @@BITS   r_cg_cgc_user
-                                      FF878H.0  00000H.0
+                                      FF884H.0  00000H.0
                   @@BITS   r_cg_serial
-                                      FF878H.0  00000H.0
+                                      FF884H.0  00000H.0
                   @@BITS   r_cg_serial_user
-                                      FF878H.0  00000H.0
-                  @@BITS   Timer      FF878H.0  00000H.0
+                                      FF884H.0  00000H.0
+                  @@BITS   Timer      FF884H.0  00000H.0
                   @@BITS   EspCommand
-                                      FF878H.0  00000H.0
-* gap *                               FF878H    0065CH
+                                      FF884H.0  00000H.0
+* gap *                               FF884H    00650H
          @@SEGREG                     FFED4H    00004H  DSEG AT
                   @@SEGREG @SEGREG    FFED4H    00004H
          @@RTARG0                     FFED8H    00008H  DSEG AT

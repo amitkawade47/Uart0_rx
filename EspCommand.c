@@ -169,7 +169,7 @@ void ReadFbStatus(void)
 	{
 		for(FbInput=0;FbInput<NO_OF_FEEDBACK;FbInput++)
 		{
-			TxChangeBuff[FbInput] =0;
+			//TxChangeBuff[FbInput] =0;
 			if((HighCounter_u8[FbInput]>= THRESHOLD_NO_OF_SAMPLES) &&
 			  (LowCounter_u8[FbInput]>= THRESHOLD_NO_OF_SAMPLES))
 			  {
@@ -184,9 +184,10 @@ void ReadFbStatus(void)
 				  OldStatus[FbInput]= CurrentStatus[FbInput];
 				  TxChangeBuff[FbInput]= 1;
 			  }
+			  HighCounter_u8[FbInput] = 0;
+			  LowCounter_u8[FbInput] = 0;
 		}
-		
-		
+		Counter_200ms = TOTAL_NO_OF_SAMPLES;		
 	}
 	else
 	{
@@ -243,3 +244,50 @@ unsigned char ReadFb(unsigned char Fb)
 	
 }
 
+void SendFbPoll(void)
+{
+	static unsigned char CheckStatus =0;
+	
+	switch(SendFbState_enm)
+	{
+		case SEND_FB_CHECK_STATE:
+			if(TxChangeBuff[CheckStatus]==1)
+			{
+				FormTxFrame(CheckStatus);
+				SendFbState_enm = SEND_FB_WAIT_TILL_TX_COMPLETE;
+			}
+			
+			TxChangeBuff[CheckStatus]= 0;
+			CheckStatus++;
+			if(CheckStatus >= NO_OF_FEEDBACK)
+			{
+				CheckStatus = 0;
+			}
+		break;
+		
+		case SEND_FB_WAIT_TILL_TX_COMPLETE:
+			if(UartState_enm == UART_TX_COMPLETED)
+			{
+				SendFbState_enm = SEND_FB_CHECK_STATE; 
+			}
+		break;
+	}
+}
+
+
+static void FormTxFrame(unsigned char state_u8)
+{
+	TxBuff[0]='#';
+	if(OldStatus[state_u8]== AC_ON)
+	{
+		TxBuff[1] = '1';	
+	}
+	else
+	{
+		TxBuff[1] = '0';
+	}
+	TxBuff[2]='@';
+	TxBuff[3] = 0x30 + state_u8;
+	TxBuff[4]='$';
+	InitiateUartTransmit(TxBuff,5);
+}

@@ -70,3 +70,4 @@ void RelayFbPortInit(void);
 void EspCommandPoll(void);
 void ReadFbStatus(void);
 unsigned char ReadFb(unsigned char Fb);
+void SendFbPoll(void);
