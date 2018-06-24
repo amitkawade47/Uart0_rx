@@ -24,7 +24,7 @@ Directive:
 *** Link information ***
 
     36 output segment(s)
-  9E2H byte(s) real data
+  9BEH byte(s) real data
    699 symbol(s) defined
 
 
@@ -158,7 +158,7 @@ Directive:
                   @@LCODE  m_fcom6    00222H    0001FH
                   @@LCODE  m_lstof    00241H    00016H
                   @@LCODE  m_lutof    00257H    0004DH
-         @@CODE                       002A4H    005B2H  CSEG BASE
+         @@CODE                       002A4H    0058EH  CSEG BASE
                   @@CODE   r_main     002A4H    0002DH
                   @@CODE   r_systeminit
                                       002D1H    00017H
@@ -171,27 +171,27 @@ Directive:
                                       00434H    00029H
                   @@CODE   Timer      0045DH    0008FH
                   @@CODE   EspCommand
-                                      004ECH    0036AH
-         @@BASE                       00856H    0007CH  CSEG BASE
-                  @@BASE   r_main     00856H    00000H
+                                      004ECH    00346H
+         @@BASE                       00832H    0007CH  CSEG BASE
+                  @@BASE   r_main     00832H    00000H
                   @@BASE   r_systeminit
-                                      00856H    00000H
-                  @@BASE   r_cg_cgc   00856H    00000H
+                                      00832H    00000H
+                  @@BASE   r_cg_cgc   00832H    00000H
                   @@BASE   r_cg_cgc_user
-                                      00856H    00000H
+                                      00832H    00000H
                   @@BASE   r_cg_serial
-                                      00856H    00000H
+                                      00832H    00000H
                   @@BASE   r_cg_serial_user
-                                      00856H    0003DH
-                  @@BASE   Timer      00893H    0003FH
+                                      00832H    0003DH
+                  @@BASE   Timer      0086FH    0003FH
                   @@BASE   EspCommand
-                                      008D2H    00000H
-         @@CNSTL                      008D2H    000CEH  CSEG PAGE64KP
-                  @@CNSTL  m_fcom5    008D2H    000CEH
-         @@LCODEL                     009A0H    00060H  CSEG
-                  @@LCODEL @stkinit   009A0H    00044H
-                  @@LCODEL exit       009E4H    0001CH
-* gap *                               00A00H    01600H
+                                      008AEH    00000H
+         @@CNSTL                      008AEH    000CEH  CSEG PAGE64KP
+                  @@CNSTL  m_fcom5    008AEH    000CEH
+         @@LCODEL                     0097CH    00060H  CSEG
+                  @@LCODEL @stkinit   0097CH    00044H
+                  @@LCODEL exit       009C0H    0001CH
+* gap *                               009DCH    01624H
          @@CNST                       02000H    00010H  CSEG MIRRORP
                   @@CNST   @cstart    02000H    00000H
                   @@CNST   r_main     02000H    00008H

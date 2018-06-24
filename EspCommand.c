@@ -170,14 +170,15 @@ void ReadFbStatus(void)
 		for(FbInput=0;FbInput<NO_OF_FEEDBACK;FbInput++)
 		{
 			//TxChangeBuff[FbInput] =0;
-			if((HighCounter_u8[FbInput]>= THRESHOLD_NO_OF_SAMPLES) &&
-			  (LowCounter_u8[FbInput]>= THRESHOLD_NO_OF_SAMPLES))
+			//if((HighCounter_u8[FbInput]>= THRESHOLD_NO_OF_SAMPLES) &&
+			//  (LowCounter_u8[FbInput]>= THRESHOLD_NO_OF_SAMPLES))
+			if((LowCounter_u8[FbInput]>= THRESHOLD_NO_OF_SAMPLES))
 			  {
-				  CurrentStatus[FbInput]= AC_ON;
+				  CurrentStatus[FbInput]= AC_OFF;
 			  }
 			  else
 			  {
-				CurrentStatus[FbInput]= AC_OFF;  
+				CurrentStatus[FbInput]= AC_ON;  
 			  }
 			  if(OldStatus[FbInput] != CurrentStatus[FbInput])
 			  {

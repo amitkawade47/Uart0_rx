@@ -69,17 +69,17 @@
 0100400_R_UART0_Send
 010038E_R_UART0_Start
 01003B9_R_UART0_Stop
-0100742_ReadFb
+010071E_ReadFb
 010064E_ReadFbStatus
 01005BD_RelayFbPortInit
-01007E7_SendFbPoll
+01007C3_SendFbPoll
 02FF812_SendFbState_enm
 02FF7D6_Uart
 02FF80C_UartState_enm
 02FF7FC_a
 02FF7BA_b
 02FF796_errno
-01009E4_exit
+01009C0_exit
 02FF7D2_g_uart0_rx_count
 02FF7D4_g_uart0_rx_length
 02FF7CE_g_uart0_tx_count
@@ -89,7 +89,7 @@
 02FF7CA_i
 01002A4_main
 0100222_matherr
-01009A0_stkinit
+010097C_stkinit
 ;FF     @cstart
 ;FF     r_main
 <0102000L0003
@@ -102,17 +102,17 @@
 0100453_r_uart0_callback_receiveend
 0100458_r_uart0_callback_sendend
 0100454_r_uart0_callback_softwareoverrun
-0100856_r_uart0_interrupt_receive
-010086A_r_uart0_interrupt_send
+0100832_r_uart0_interrupt_receive
+0100846_r_uart0_interrupt_send
 ;FF     Timer
 <02FF80E_OneSecTimer
 02FF810_flag
-0100893_r_tau0_channel0_interrupt
+010086F_r_tau0_channel0_interrupt
 ;FF     EspCommand
 <0102008L0048
 02FF883_CheckStatus
 02FF882_Counter_200ms
-0100822_FormTxFrame
+01007FE_FormTxFrame
 02FF7EC_HighCounter_u8
 02FF7F4_LowCounter_u8
 02FF7DC_OldStatus
