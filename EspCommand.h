@@ -19,6 +19,7 @@ ESP_STATES_ENM EspCommandState_enm =CHECK_COMMAND;
 
  
 static unsigned char TxBuff[10]= {0};
+static unsigned char RxCmdBuff[100] ={0};
 static unsigned char OldStatus[NO_OF_FEEDBACK],TxChangeBuff[NO_OF_FEEDBACK];
 static void TakeRelayAction(void);
 static void FormTxFrame(unsigned char);

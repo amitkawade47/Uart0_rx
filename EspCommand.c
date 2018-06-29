@@ -5,39 +5,43 @@
 #include "r_cg_serial.h"
 
 void EspCommandPoll(void)
-{
-	
-	switch(EspCommandState_enm)
+{	static unsigned char counter = 0;
+	if((RxCmdBuff[0]=='#'))
 	{
-		case CHECK_COMMAND:
-			if(Uart.NoOfBytesReceived_u8 >= 5)
-       			{
-				EspCommandState_enm = ANALYZE_COMMAND;
-			}
-			else if((Uart.NoOfBytesReceived_u8 < 5)&& (Uart.NoOfBytesReceived_u8 >= 1) && (ClearRxBufferCounter ==0))
+		if((RxCmdBuff[1]=='1') || (RxCmdBuff[1]=='0')) 
+		{
+			if(RxCmdBuff[2]=='@')
 			{
-				ClearRxBufferCounter = RxBuffClearTime;
+				if(RxCmdBuff[4]=='$')
+				{
+					TakeRelayAction();
+					memset(RxCmdBuff,0,sizeof(RxCmdBuff));
+					Uart.NoOfBytesReceived_u8 = 0;
+					Uart.UartRxPtr = RxCmdBuff;
+				}
+				else if(Uart.NoOfBytesReceived_u8 == 5)
+				{
+					Uart.NoOfBytesReceived_u8 = 0;
+					Uart.UartRxPtr = RxCmdBuff;
+				}
 			}
-		break;
-		
-		case ANALYZE_COMMAND:
-			if((RxCmdBuff[0]=='#') && (RxCmdBuff[2]=='@') && (RxCmdBuff[4]=='$'))
+			else if(Uart.NoOfBytesReceived_u8 == 3)
 			{
-				EspCommandState_enm = TAKE_ACTION;
+				Uart.NoOfBytesReceived_u8 = 0;
+				Uart.UartRxPtr = RxCmdBuff;
 			}
-			else
-			{
-				EspCommandState_enm = CHECK_COMMAND;
-			}
+		}
+		else if(Uart.NoOfBytesReceived_u8 == 2)
+		{
 			Uart.NoOfBytesReceived_u8 = 0;
 			Uart.UartRxPtr = RxCmdBuff;
-			ClearRxBufferCounter = 0;
-		break;
+		}
 		
-		case TAKE_ACTION:
-			TakeRelayAction();
-			EspCommandState_enm = CHECK_COMMAND;
-		break;
+	}
+	else if(Uart.NoOfBytesReceived_u8 == 1)
+	{
+		Uart.NoOfBytesReceived_u8 = 0;
+		Uart.UartRxPtr = RxCmdBuff;
 	}
 }
 

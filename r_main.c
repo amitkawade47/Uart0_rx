@@ -74,7 +74,7 @@ void main(void)
 	//PM3 = 0xFC & (~0x02);
     while (1U)
     {
-	    EspCommandPoll();
+	    //EspCommandPoll();
 	    SendFbPoll();
       /* if(Uart.NoOfBytesReceived_u8 >= 5)
        {

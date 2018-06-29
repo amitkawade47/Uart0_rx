@@ -42,6 +42,7 @@ Includes
 /* Start user code for include. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
+#include "Uart.h"
 #include "EspCommand_AI.h"
 
 /***********************************************************************************************************************
@@ -96,6 +97,7 @@ __interrupt static void r_uart0_interrupt_receive(void)
     Uart.NoOfBytesReceived_u8++;
     *Uart.UartRxPtr = ReceivedByte;
     Uart.UartRxPtr++;
+    EspCommandPoll();
 }
 
 /***********************************************************************************************************************

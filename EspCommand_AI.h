@@ -73,6 +73,3 @@ void EspCommandPoll(void);
 void ReadFbStatus(void);
 unsigned char ReadFb(unsigned char Fb);
 void SendFbPoll(void);
-
-static unsigned char ClearRxBufferCounter = 0;
-static unsigned char RxCmdBuff[100] ={0};

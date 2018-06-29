@@ -107,7 +107,7 @@ __interrupt static void r_tau0_channel0_interrupt(void)
 		flag = 1;
 		
 	}
-	if (ClearRxBufferCounter != 0)
+	/*if (ClearRxBufferCounter != 0)
 	{
 		ClearRxBufferCounter--;
 		if ((ClearRxBufferCounter == 0))
@@ -115,7 +115,7 @@ __interrupt static void r_tau0_channel0_interrupt(void)
 			Uart.NoOfBytesReceived_u8 = 0;
 			Uart.UartRxPtr = RxCmdBuff;
 		}
-	}
+	}*/
 	
 	ReadFbStatus();
     
