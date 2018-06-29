@@ -4,6 +4,7 @@
 #include "r_cg_macrodriver.h"
 #include "Timer.h"
 #include "EspCommand_AI.h" 
+#include "r_cg_serial.h"
 /***********************************************************************************************************************
 * Function Name: R_TAU0_Create
 * Description  : This function initializes the TAU0 module.
@@ -96,12 +97,24 @@ void R_TAU0_Channel0_Stop(void)
 ***********************************************************************************************************************/
 __interrupt static void r_tau0_channel0_interrupt(void)
 {
-	static OneSecTimer = 1000;
+	static OneSecTimer = 2000;
 	static flag= 0;
-	if(OneSecTimer-- == 0)
+	if((flag == 0) && (OneSecTimer-- == 0))
 	{
-		OneSecTimer = 1000;
+		//OneSecTimer = 1000;
+		//R_UART0_Create();
+		//R_UART0_Start();
+		flag = 1;
 		
+	}
+	if (ClearRxBufferCounter != 0)
+	{
+		ClearRxBufferCounter--;
+		if ((ClearRxBufferCounter == 0))
+		{
+			Uart.NoOfBytesReceived_u8 = 0;
+			Uart.UartRxPtr = RxCmdBuff;
+		}
 	}
 	
 	ReadFbStatus();

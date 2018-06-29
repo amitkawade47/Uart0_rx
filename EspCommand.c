@@ -6,12 +6,17 @@
 
 void EspCommandPoll(void)
 {
+	
 	switch(EspCommandState_enm)
 	{
 		case CHECK_COMMAND:
 			if(Uart.NoOfBytesReceived_u8 >= 5)
        			{
 				EspCommandState_enm = ANALYZE_COMMAND;
+			}
+			else if((Uart.NoOfBytesReceived_u8 < 5)&& (Uart.NoOfBytesReceived_u8 >= 1) && (ClearRxBufferCounter ==0))
+			{
+				ClearRxBufferCounter = RxBuffClearTime;
 			}
 		break;
 		
@@ -26,6 +31,7 @@ void EspCommandPoll(void)
 			}
 			Uart.NoOfBytesReceived_u8 = 0;
 			Uart.UartRxPtr = RxCmdBuff;
+			ClearRxBufferCounter = 0;
 		break;
 		
 		case TAKE_ACTION:

@@ -42,7 +42,7 @@ Includes
 /* Start user code for include. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
-#include "Uart.h"
+#include "EspCommand_AI.h"
 
 /***********************************************************************************************************************
 Global variables and functions
