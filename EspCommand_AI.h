@@ -68,6 +68,8 @@
 
 #define RxBuffClearTime 50   // in milliseconds
 
+static unsigned char RxCmdBuff;
+
 void RelayFbPortInit(void);
 void EspCommandPoll(void);
 void ReadFbStatus(void);

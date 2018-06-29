@@ -3,7 +3,7 @@
 #include "EspCommand.h"
 #include "EspCommand_AI.h"
 #include "r_cg_serial.h"
-
+extern unsigned char ReceivedByte;
 void EspCommandPoll(void)
 {	static unsigned char Counter = 0;
 	if(Counter == 0)
@@ -42,8 +42,15 @@ void EspCommandPoll(void)
 	}
 	else if(Counter == 3)
 	{
-		Device = ReceivedByte;
-		Counter++;
+		if(ReceivedByte <= '7' && ReceivedByte >= '0')
+		{
+			Device = ReceivedByte;
+			Counter++;
+		}
+		else
+		{
+			Counter = 0;
+		}
 	}
 	else if(Counter == 4)
 	{

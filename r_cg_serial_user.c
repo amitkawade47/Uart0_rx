@@ -44,7 +44,7 @@ Includes
 #include "r_cg_userdefine.h"
 #include "Uart.h"
 #include "EspCommand_AI.h"
-
+unsigned char ReceivedByte = 0;
 /***********************************************************************************************************************
 Global variables and functions
 ***********************************************************************************************************************/
@@ -96,6 +96,7 @@ __interrupt static void r_uart0_interrupt_receive(void)
     ReceivedByte = RXD0;
     //Uart.NoOfBytesReceived_u8++;
     //*Uart.UartRxPtr = ReceivedByte;
+   // RxCmdBuff = ReceivedByte;
     //Uart.UartRxPtr++;
     EspCommandPoll();
 }

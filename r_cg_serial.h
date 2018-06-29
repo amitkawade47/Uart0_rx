@@ -416,5 +416,4 @@ typedef enum{
 
 extern TagUart Uart;
 extern UART_STATES_ENM UartState_enm;
-static unsigned char ReceivedByte;
 #endif

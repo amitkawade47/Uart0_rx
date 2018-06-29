@@ -13,12 +13,12 @@
 0100241@@lstof
 0100257@@lutof
 0100260@@lutofe
-02FF80A_?DATA
-02FF830_?DATAL
-02FF830_?DATS
-02FF830_?INIS
-02FF830_?INIT
-02FF830_?INITL
+02FF806_?DATA
+02FF82C_?DATAL
+02FF82C_?DATS
+02FF82C_?INIS
+02FF82C_?INIT
+02FF82C_?INITL
 0100002_?RLINIT
 0100002_?R_INIS
 0100054_?R_INIT
@@ -46,7 +46,7 @@
 02FFED6_@SEGDE
 02FFED7_@SEGHL
 00FFED4_@STBEG
-00FF830_@STEND
+00FF82C_@STEND
 02FF792_@TOKPTR
 0100185_@cend
 01000D8_@cstart
@@ -54,7 +54,7 @@
 0100020_@vect20
 010002C_@vect2c
 01004E9_EspCommandPoll
-02FF821_EspCommandState_enm
+02FF81D_EspCommandState_enm
 0100431_InitiateUartTransmit
 01002E5_R_CGC_Create
 01002F5_R_CGC_Get_ResetSource
@@ -69,65 +69,64 @@
 01003FD_R_UART0_Send
 010038B_R_UART0_Start
 01003B6_R_UART0_Stop
-0100756_ReadFb
-0100686_ReadFbStatus
-01005FB_RelayFbPortInit
-01007FB_SendFbPoll
-02FF820_SendFbState_enm
-02FF7DE_Uart
-02FF81A_UartState_enm
-02FF80A_a
-02FF7BE_b
+0100767_ReadFb
+0100697_ReadFbStatus
+02FF817_ReceivedByte
+010060C_RelayFbPortInit
+010080C_SendFbPoll
+02FF81C_SendFbState_enm
+02FF7D8_Uart
+02FF816_UartState_enm
+02FF806_a
+02FF7BC_b
 02FF796_errno
-0100A1C_exit
-02FF7D8_g_uart0_rx_count
-02FF7DA_g_uart0_rx_length
-02FF7D4_g_uart0_tx_count
-02FF7D6_gp_uart0_rx_address
-02FF7D2_gp_uart0_tx_address
+0100A2E_exit
+02FF7D4_g_uart0_rx_count
+02FF7D6_g_uart0_rx_length
+02FF7D0_g_uart0_tx_count
+02FF7D2_gp_uart0_rx_address
+02FF7CE_gp_uart0_tx_address
 01002DE_hdwinit
-02FF7CE_i
+02FF7CC_i
 01002A4_main
 0100222_matherr
-01009D8_stkinit
+01009EA_stkinit
 ;FF     @cstart
 ;FF     r_main
 <0102000L0003
-02FF7BA_ReceivedByte
+02FF7BA_RxCmdBuff
 ;FF     r_systeminit
-<02FF7BC_ReceivedByte
 ;FF     r_cg_cgc
 ;FF     r_cg_cgc_user
 ;FF     r_cg_serial
-<02FF7D0_ReceivedByte
 ;FF     r_cg_serial_user
-<02FF7DC_ReceivedByte
+<02FF7DE_RxCmdBuff
 0100456_r_uart0_callback_error
 0100450_r_uart0_callback_receiveend
 0100455_r_uart0_callback_sendend
 0100451_r_uart0_callback_softwareoverrun
-010086A_r_uart0_interrupt_receive
-010089E_r_uart0_interrupt_send
+010087B_r_uart0_interrupt_receive
+01008AF_r_uart0_interrupt_send
 ;FF     Timer
-<02FF81C_OneSecTimer
-02FF7E4_ReceivedByte
-02FF81E_flag
-01008C7_r_tau0_channel0_interrupt
+<02FF818_OneSecTimer
+02FF7E0_RxCmdBuff
+02FF81A_flag
+01008D8_r_tau0_channel0_interrupt
 ;FF     EspCommand
-<0102008L0058
-02FF7E6_Action
-02FF82E_CheckStatus
-02FF82C_Counter
-02FF82D_Counter_200ms
-02FF7E7_Device
-0100836_FormTxFrame
-02FF7F9_HighCounter_u8
-02FF801_LowCounter_u8
-02FF7E8_OldStatus
-02FF7F8_ReceivedByte
-0100565_TakeRelayAction
-02FF822_TxBuff
-02FF7F0_TxChangeBuff
+<0102008L0060
+02FF7E2_Action
+02FF82A_CheckStatus
+02FF828_Counter
+02FF829_Counter_200ms
+02FF7E3_Device
+0100847_FormTxFrame
+02FF7F5_HighCounter_u8
+02FF7FD_LowCounter_u8
+02FF7E4_OldStatus
+02FF7F4_RxCmdBuff
+0100576_TakeRelayAction
+02FF81E_TxBuff
+02FF7EC_TxChangeBuff
 ;FF     @SEGREG
 ;FF     @stkinit
 ;FF     @RTARG0
