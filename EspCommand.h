@@ -17,9 +17,9 @@ typedef enum{
 SEND_FB_STATES_ENM SendFbState_enm = SEND_FB_CHECK_STATE;
 ESP_STATES_ENM EspCommandState_enm =CHECK_COMMAND;
 
- 
+static unsigned char Action,Device;
 static unsigned char TxBuff[10]= {0};
-static unsigned char RxCmdBuff[100] ={0};
+//static unsigned char RxCmdBuff[100] ={0};
 static unsigned char OldStatus[NO_OF_FEEDBACK],TxChangeBuff[NO_OF_FEEDBACK];
-static void TakeRelayAction(void);
+static void TakeRelayAction(unsigned char,unsigned char);
 static void FormTxFrame(unsigned char);

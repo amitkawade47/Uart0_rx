@@ -24,8 +24,8 @@ Directive:
 *** Link information ***
 
     36 output segment(s)
-  A37H byte(s) real data
-   722 symbol(s) defined
+  9B8H byte(s) real data
+   737 symbol(s) defined
 
 
 *** Memory map ***
@@ -117,7 +117,7 @@ Directive:
 * gap *                               00022H    0000AH
          @@VECT2C                     0002CH    00002H  CSEG AT
                   @@VECT2C Timer      0002CH    00002H
-         @@R_INIT                     0002EH    0008AH  CSEG UNIT64KP
+         @@R_INIT                     0002EH    00026H  CSEG UNIT64KP
                   @@R_INIT @cstart    0002EH    00000H
                   @@R_INIT r_main     0002EH    00000H
                   @@R_INIT r_systeminit
@@ -131,9 +131,9 @@ Directive:
                                       0003EH    00002H
                   @@R_INIT Timer      00040H    00004H
                   @@R_INIT EspCommand
-                                      00044H    00074H
-                  @@R_INIT @rom       000B8H    00000H
-* gap *                               000B8H    00008H
+                                      00044H    00010H
+                  @@R_INIT @rom       00054H    00000H
+* gap *                               00054H    0006CH
          ?CSEGOB0                     000C0H    00004H  CSEG OPT_BYTE
          @@CODEL                      000C4H    00000H  CSEG
                   @@CODEL  r_main     000C4H    00000H
@@ -158,7 +158,7 @@ Directive:
                   @@LCODE  m_fcom6    00222H    0001FH
                   @@LCODE  m_lstof    00241H    00016H
                   @@LCODE  m_lutof    00257H    0004DH
-         @@CODE                       002A4H    005C1H  CSEG BASE
+         @@CODE                       002A4H    005C6H  CSEG BASE
                   @@CODE   r_main     002A4H    0002AH
                   @@CODE   r_systeminit
                                       002CEH    00017H
@@ -171,28 +171,27 @@ Directive:
                                       00431H    00029H
                   @@CODE   Timer      0045AH    0008FH
                   @@CODE   EspCommand
-                                      004E9H    0037CH
-         @@BASE                       00865H    000A7H  CSEG BASE
-                  @@BASE   r_main     00865H    00000H
+                                      004E9H    00381H
+         @@BASE                       0086AH    000A0H  CSEG BASE
+                  @@BASE   r_main     0086AH    00000H
                   @@BASE   r_systeminit
-                                      00865H    00000H
-                  @@BASE   r_cg_cgc   00865H    00000H
+                                      0086AH    00000H
+                  @@BASE   r_cg_cgc   0086AH    00000H
                   @@BASE   r_cg_cgc_user
-                                      00865H    00000H
+                                      0086AH    00000H
                   @@BASE   r_cg_serial
-                                      00865H    00000H
+                                      0086AH    00000H
                   @@BASE   r_cg_serial_user
-                                      00865H    00064H
-                  @@BASE   Timer      008C9H    00043H
+                                      0086AH    0005DH
+                  @@BASE   Timer      008C7H    00043H
                   @@BASE   EspCommand
-                                      0090CH    00000H
-         @@CNSTL                      0090CH    000CEH  CSEG PAGE64KP
-                  @@CNSTL  m_fcom5    0090CH    000CEH
-         @@LCODEL                     009DAH    00079H  CSEG
-                  @@LCODEL @stkinit   009DAH    00044H
-                  @@LCODEL exit       00A1EH    0001CH
-                  @@LCODEL memset_n   00A3AH    00019H
-* gap *                               00A53H    015ADH
+                                      0090AH    00000H
+         @@CNSTL                      0090AH    000CEH  CSEG PAGE64KP
+                  @@CNSTL  m_fcom5    0090AH    000CEH
+         @@LCODEL                     009D8H    00060H  CSEG
+                  @@LCODEL @stkinit   009D8H    00044H
+                  @@LCODEL exit       00A1CH    0001CH
+* gap *                               00A38H    015C8H
          @@CNST                       02000H    00010H  CSEG MIRRORP
                   @@CNST   @cstart    02000H    00000H
                   @@CNST   r_main     02000H    00008H
@@ -214,118 +213,118 @@ Directive:
   BASE ADDRESS=FF700H   SIZE=00900H
          OUTPUT   INPUT    INPUT      BASE      SIZE
          SEGMENT  SEGMENT  MODULE     ADDRESS
-         @@DATA                       FF700H    000FCH  DSEG BASEP
+         @@DATA                       FF700H    0010AH  DSEG BASEP
                   @@DATA   @cstart    FF700H    000BAH
-                  @@DATA   r_main     FF7BAH    00000H
+                  @@DATA   r_main     FF7BAH    00002H
                   @@DATA   r_systeminit
-                                      FF7BAH    00000H
-                  @@DATA   r_cg_cgc   FF7BAH    00000H
+                                      FF7BCH    00002H
+                  @@DATA   r_cg_cgc   FF7BEH    00000H
                   @@DATA   r_cg_cgc_user
-                                      FF7BAH    00012H
+                                      FF7BEH    00012H
                   @@DATA   r_cg_serial
-                                      FF7CCH    0000AH
+                                      FF7D0H    0000CH
                   @@DATA   r_cg_serial_user
-                                      FF7D6H    00006H
-                  @@DATA   Timer      FF7DCH    00000H
+                                      FF7DCH    00008H
+                  @@DATA   Timer      FF7E4H    00002H
                   @@DATA   EspCommand
-                                      FF7DCH    00020H
-                  @@DATA   @rom       FF7FCH    00000H
-         @@INIT                       FF7FCH    0008AH  DSEG BASEP
-                  @@INIT   @cstart    FF7FCH    00000H
-                  @@INIT   r_main     FF7FCH    00000H
+                                      FF7E6H    00024H
+                  @@DATA   @rom       FF80AH    00000H
+         @@INIT                       FF80AH    00026H  DSEG BASEP
+                  @@INIT   @cstart    FF80AH    00000H
+                  @@INIT   r_main     FF80AH    00000H
                   @@INIT   r_systeminit
-                                      FF7FCH    00000H
-                  @@INIT   r_cg_cgc   FF7FCH    00000H
+                                      FF80AH    00000H
+                  @@INIT   r_cg_cgc   FF80AH    00000H
                   @@INIT   r_cg_cgc_user
-                                      FF7FCH    00010H
+                                      FF80AH    00010H
                   @@INIT   r_cg_serial
-                                      FF80CH    00000H
+                                      FF81AH    00000H
                   @@INIT   r_cg_serial_user
-                                      FF80CH    00002H
-                  @@INIT   Timer      FF80EH    00004H
+                                      FF81AH    00002H
+                  @@INIT   Timer      FF81CH    00004H
                   @@INIT   EspCommand
-                                      FF812H    00074H
-                  @@INIT   @rom       FF886H    00000H
-         @@INIS                       FF886H    00000H  DSEG UNITP
-                  @@INIS   @cstart    FF886H    00000H
-                  @@INIS   r_main     FF886H    00000H
+                                      FF820H    00010H
+                  @@INIT   @rom       FF830H    00000H
+         @@INIS                       FF830H    00000H  DSEG UNITP
+                  @@INIS   @cstart    FF830H    00000H
+                  @@INIS   r_main     FF830H    00000H
                   @@INIS   r_systeminit
-                                      FF886H    00000H
-                  @@INIS   r_cg_cgc   FF886H    00000H
+                                      FF830H    00000H
+                  @@INIS   r_cg_cgc   FF830H    00000H
                   @@INIS   r_cg_cgc_user
-                                      FF886H    00000H
+                                      FF830H    00000H
                   @@INIS   r_cg_serial
-                                      FF886H    00000H
+                                      FF830H    00000H
                   @@INIS   r_cg_serial_user
-                                      FF886H    00000H
-                  @@INIS   Timer      FF886H    00000H
+                                      FF830H    00000H
+                  @@INIS   Timer      FF830H    00000H
                   @@INIS   EspCommand
-                                      FF886H    00000H
-                  @@INIS   @rom       FF886H    00000H
-         @@DATS                       FF886H    00000H  DSEG UNITP
-                  @@DATS   @cstart    FF886H    00000H
-                  @@DATS   r_main     FF886H    00000H
+                                      FF830H    00000H
+                  @@INIS   @rom       FF830H    00000H
+         @@DATS                       FF830H    00000H  DSEG UNITP
+                  @@DATS   @cstart    FF830H    00000H
+                  @@DATS   r_main     FF830H    00000H
                   @@DATS   r_systeminit
-                                      FF886H    00000H
-                  @@DATS   r_cg_cgc   FF886H    00000H
+                                      FF830H    00000H
+                  @@DATS   r_cg_cgc   FF830H    00000H
                   @@DATS   r_cg_cgc_user
-                                      FF886H    00000H
+                                      FF830H    00000H
                   @@DATS   r_cg_serial
-                                      FF886H    00000H
+                                      FF830H    00000H
                   @@DATS   r_cg_serial_user
-                                      FF886H    00000H
-                  @@DATS   Timer      FF886H    00000H
+                                      FF830H    00000H
+                  @@DATS   Timer      FF830H    00000H
                   @@DATS   EspCommand
-                                      FF886H    00000H
-                  @@DATS   @rom       FF886H    00000H
-         @@INITL                      FF886H    00000H  DSEG UNIT64KP
-                  @@INITL  @cstart    FF886H    00000H
-                  @@INITL  r_main     FF886H    00000H
+                                      FF830H    00000H
+                  @@DATS   @rom       FF830H    00000H
+         @@INITL                      FF830H    00000H  DSEG UNIT64KP
+                  @@INITL  @cstart    FF830H    00000H
+                  @@INITL  r_main     FF830H    00000H
                   @@INITL  r_systeminit
-                                      FF886H    00000H
-                  @@INITL  r_cg_cgc   FF886H    00000H
+                                      FF830H    00000H
+                  @@INITL  r_cg_cgc   FF830H    00000H
                   @@INITL  r_cg_cgc_user
-                                      FF886H    00000H
+                                      FF830H    00000H
                   @@INITL  r_cg_serial
-                                      FF886H    00000H
+                                      FF830H    00000H
                   @@INITL  r_cg_serial_user
-                                      FF886H    00000H
-                  @@INITL  Timer      FF886H    00000H
+                                      FF830H    00000H
+                  @@INITL  Timer      FF830H    00000H
                   @@INITL  EspCommand
-                                      FF886H    00000H
-                  @@INITL  @rom       FF886H    00000H
-         @@DATAL                      FF886H    00000H  DSEG UNIT64KP
-                  @@DATAL  @cstart    FF886H    00000H
-                  @@DATAL  r_main     FF886H    00000H
+                                      FF830H    00000H
+                  @@INITL  @rom       FF830H    00000H
+         @@DATAL                      FF830H    00000H  DSEG UNIT64KP
+                  @@DATAL  @cstart    FF830H    00000H
+                  @@DATAL  r_main     FF830H    00000H
                   @@DATAL  r_systeminit
-                                      FF886H    00000H
-                  @@DATAL  r_cg_cgc   FF886H    00000H
+                                      FF830H    00000H
+                  @@DATAL  r_cg_cgc   FF830H    00000H
                   @@DATAL  r_cg_cgc_user
-                                      FF886H    00000H
+                                      FF830H    00000H
                   @@DATAL  r_cg_serial
-                                      FF886H    00000H
+                                      FF830H    00000H
                   @@DATAL  r_cg_serial_user
-                                      FF886H    00000H
-                  @@DATAL  Timer      FF886H    00000H
+                                      FF830H    00000H
+                  @@DATAL  Timer      FF830H    00000H
                   @@DATAL  EspCommand
-                                      FF886H    00000H
-                  @@DATAL  @rom       FF886H    00000H
-         @@BITS                       FF886H    00000H  BSEG
-                  @@BITS   @cstart    FF886H.0  00000H.0
-                  @@BITS   r_main     FF886H.0  00000H.0
+                                      FF830H    00000H
+                  @@DATAL  @rom       FF830H    00000H
+         @@BITS                       FF830H    00000H  BSEG
+                  @@BITS   @cstart    FF830H.0  00000H.0
+                  @@BITS   r_main     FF830H.0  00000H.0
                   @@BITS   r_systeminit
-                                      FF886H.0  00000H.0
-                  @@BITS   r_cg_cgc   FF886H.0  00000H.0
+                                      FF830H.0  00000H.0
+                  @@BITS   r_cg_cgc   FF830H.0  00000H.0
                   @@BITS   r_cg_cgc_user
-                                      FF886H.0  00000H.0
+                                      FF830H.0  00000H.0
                   @@BITS   r_cg_serial
-                                      FF886H.0  00000H.0
+                                      FF830H.0  00000H.0
                   @@BITS   r_cg_serial_user
-                                      FF886H.0  00000H.0
-                  @@BITS   Timer      FF886H.0  00000H.0
+                                      FF830H.0  00000H.0
+                  @@BITS   Timer      FF830H.0  00000H.0
                   @@BITS   EspCommand
-                                      FF886H.0  00000H.0
-* gap *                               FF886H    0064EH
+                                      FF830H.0  00000H.0
+* gap *                               FF830H    006A4H
          @@SEGREG                     FFED4H    00004H  DSEG AT
                   @@SEGREG @SEGREG    FFED4H    00004H
          @@RTARG0                     FFED8H    00008H  DSEG AT

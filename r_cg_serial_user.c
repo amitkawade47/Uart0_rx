@@ -93,10 +93,10 @@ __interrupt static void r_uart0_interrupt_receive(void)
         r_uart0_callback_softwareoverrun(rx_data);
     }*/
     
-    unsigned char ReceivedByte = RXD0;
-    Uart.NoOfBytesReceived_u8++;
-    *Uart.UartRxPtr = ReceivedByte;
-    Uart.UartRxPtr++;
+    ReceivedByte = RXD0;
+    //Uart.NoOfBytesReceived_u8++;
+    //*Uart.UartRxPtr = ReceivedByte;
+    //Uart.UartRxPtr++;
     EspCommandPoll();
 }
 

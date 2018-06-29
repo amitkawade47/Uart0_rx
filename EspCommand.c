@@ -5,53 +5,71 @@
 #include "r_cg_serial.h"
 
 void EspCommandPoll(void)
-{	static unsigned char counter = 0;
-	if((RxCmdBuff[0]=='#'))
+{	static unsigned char Counter = 0;
+	if(Counter == 0)
 	{
-		if((RxCmdBuff[1]=='1') || (RxCmdBuff[1]=='0')) 
+		if(ReceivedByte == '#')
 		{
-			if(RxCmdBuff[2]=='@')
-			{
-				if(RxCmdBuff[4]=='$')
-				{
-					TakeRelayAction();
-					memset(RxCmdBuff,0,sizeof(RxCmdBuff));
-					Uart.NoOfBytesReceived_u8 = 0;
-					Uart.UartRxPtr = RxCmdBuff;
-				}
-				else if(Uart.NoOfBytesReceived_u8 == 5)
-				{
-					Uart.NoOfBytesReceived_u8 = 0;
-					Uart.UartRxPtr = RxCmdBuff;
-				}
-			}
-			else if(Uart.NoOfBytesReceived_u8 == 3)
-			{
-				Uart.NoOfBytesReceived_u8 = 0;
-				Uart.UartRxPtr = RxCmdBuff;
-			}
+			Counter++;			
 		}
-		else if(Uart.NoOfBytesReceived_u8 == 2)
+		else
 		{
-			Uart.NoOfBytesReceived_u8 = 0;
-			Uart.UartRxPtr = RxCmdBuff;
+			Counter = 0;
 		}
-		
 	}
-	else if(Uart.NoOfBytesReceived_u8 == 1)
+	else if(Counter == 1)
 	{
-		Uart.NoOfBytesReceived_u8 = 0;
-		Uart.UartRxPtr = RxCmdBuff;
+		if((ReceivedByte == '1') || (ReceivedByte == '0'))
+		{
+			Action = ReceivedByte;
+			Counter++;
+		}
+		else
+		{
+			Counter = 0;
+		}
+	}
+	else if(Counter == 2)
+	{
+		if(ReceivedByte == '@')
+		{
+			Counter++;			
+		}
+		else
+		{
+			Counter = 0;
+		}
+	}
+	else if(Counter == 3)
+	{
+		Device = ReceivedByte;
+		Counter++;
+	}
+	else if(Counter == 4)
+	{
+		if(ReceivedByte == '$')
+		{
+			TakeRelayAction(Action,Device);
+			Counter = 0;			
+		}
+		else
+		{
+			Counter = 0;
+		}
+	}
+	else
+	{
+		Counter = 0;
 	}
 }
 
 //*************************************************************************************
 
-static void TakeRelayAction(void)
+static void TakeRelayAction(unsigned char Act,unsigned char Dev)
 {
-	if(RxCmdBuff[1] == '1')
+	if(Act == '1')
 	{
-		switch(RxCmdBuff[3])
+		switch(Dev)
 		{
 			case '0':
 			HIGH(Relay_0_PORT,Relay_0_PIN);
@@ -87,9 +105,9 @@ static void TakeRelayAction(void)
 		
 		}
 	}
-	else if(RxCmdBuff[1] == '0')
+	else if(Act == '0')
 	{
-		switch(RxCmdBuff[3])
+		switch(Dev)
 		{
 			case '0':
 			LOW(Relay_0_PORT,Relay_0_PIN);
@@ -166,7 +184,7 @@ void RelayFbPortInit(void)
 	INPUT(Feedback_6_MODE_PORT,Feedback_6_PIN);
 	INPUT(Feedback_7_MODE_PORT,Feedback_7_PIN);
 
-	Uart.UartRxPtr = RxCmdBuff;
+	//Uart.UartRxPtr = RxCmdBuff;
 }
 
 void ReadFbStatus(void)
